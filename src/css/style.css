@@ -1,0 +1,137 @@
+/* Reset global para remover margens e paddings padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Faz com que o HTML e BODY ocupem 100% da tela sem rolagem */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Impede rolagem indesejada */
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Configuração base para os personagens (imagens de fundo) */
+.personagem {
+    display: none; /* Todos os personagens ficam ocultos por padrão */
+    position: absolute;
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+}
+
+/* Apenas o personagem "selecionado" será visível */
+.personagem.selecionado {
+    display: block;
+}
+
+/* Ajusta as imagens dentro das tags <img> para cobrir toda a tela */
+.personagem .imagem {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Mantém a proporção da imagem e cobre toda a área */
+}
+
+/* === BARRA LATERAL === */
+.botoes {
+    position: fixed; /* Fixa a barra na tela */
+    top: 0; /* Começa do topo */
+    right: 0; /* Fica na direita */
+    width: 140px; /* Aumentei a largura da barra */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    background-color: rgba(0, 0, 0, 0.3); /* Fundo preto semi-transparente */
+    display: flex; /* Ativa o flexbox para alinhar os botões */
+    flex-direction: column; /* Organiza os botões verticalmente */
+    justify-content: center; /* Centraliza os botões na altura */
+    align-items: center; /* Centraliza os botões na largura */
+    padding: 10px 0; /* Adiciona um pequeno espaçamento interno */
+}
+
+/* === BOTÕES DENTRO DA BARRA === */
+.botoes .botao {
+   background: none; /* Remove o fundo do botão */
+   border: none; /* Remove a borda */
+   outline: none; /* Remove qualquer contorno */
+   cursor: pointer; /* Transforma o cursor em "mãozinha" */
+   opacity: 0.5; /* Deixa os botões levemente transparentes */
+   transition: opacity 0.3s, box-shadow 0.3s; /* Suaviza a mudança de opacidade e brilho */
+   
+   /* Ajusta tamanho do botão */
+   width: 90px;
+   height: 90px;
+   border-radius: 50%; /* Deixa os botões circulares */
+   
+
+   /* Centraliza os ícones dos botões */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   /* Adiciona espaçamento maior entre os botões */
+   margin-bottom: 25px;
+}
+
+.botoes img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o botão */
+}
+
+/* === EFEITO DE SELEÇÃO COM CORES DIFERENTES === */
+.botoes .botao.selecionado {
+    opacity: 1; /* Totalmente visível */
+    box-shadow: 0px 0px 15px 5px; /* Adiciona brilho ao redor */
+}
+
+/* killua - Azul neon */
+.botoes .killua.selecionado {
+    box-shadow: 0px 0px 15px 5px rgba(0, 162, 255, 0.8);
+}
+
+/* gojo - Roxo */
+.botoes .gojo.selecionado {
+    box-shadow: 0px 0px 15px 5px rgba(138, 43, 226, 0.8);
+}
+
+/* vegeta - Vermelho */
+.botoes .vegeta.selecionado {
+    box-shadow: 0px 0px 15px 5px rgba(255, 255, 0, 0.8);
+}
+
+/* toph - Verde neon */
+.botoes .toph.selecionado {
+    box-shadow: 0px 0px 15px 5px rgba(0, 255, 0, 0.8);
+}
+
+/* eren - Amarelo */
+.botoes .eren.selecionado {
+    box-shadow: 0px 0px 15px 5px rgba(255, 0, 0, 0.8);
+}
+
+.botoes li {
+    list-style: none; /* Remove o marcador padrão */
+}
+
+
+/* === POSICIONA O TEXTO === */
+.conteudo {
+    position: absolute; /* Permite posicionamento manual */
+    top: 50%; /* Coloca no meio verticalmente */
+    left: 5%; /* Mantém o texto na esquerda da tela */
+    transform: translateY(-50%); /* Ajusta o alinhamento vertical exato */
+    max-width: 40%; /* Limita a largura do texto */
+    color: white; /* Cor do texto branca */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para melhorar a leitura */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adiciona espaçamento automático entre os elementos */
+}
+
+
+.nome-personagem {
+    font-size: 45px;
+    font-weight: bold;
+}
+
